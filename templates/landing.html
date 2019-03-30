@@ -1,7 +1,13 @@
 {% extends "layout.html" %} 
 {% block content %}
 
-  <a href="#"> 
-    <button>Sign In</button>
-  </a>
+  <form method="POST" action="">
+    EMAIL ADDRESS:<br>
+    <input type="email" name="email" placeholder="email@zom.com" class="sign-in-label">
+    <br>
+    PASSWORD:<br>
+    <input type="password" name="password" placeholder="sleepypassword" class="sign-in-label">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form> 
 {% endblock %}

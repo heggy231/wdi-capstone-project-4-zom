@@ -379,3 +379,13 @@ post.html
 ```
 
 </details>
+
+
+----------
+resource
+----------
+- password https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
+
+- add logo
+
+<img src="../static/neighlogo.png" alt="neighborAlet-logo"  width="100" height="100" >
