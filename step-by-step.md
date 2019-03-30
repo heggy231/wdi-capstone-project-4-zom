@@ -28,7 +28,6 @@ Most of these we will be using later on with our models lesson.
 flask-login
 flask-bcrypt
 flask
-flask-bcrypt
 peewee
 flask-wtf
 flask-cors  // If you are running react frontend with Flask backedn

@@ -1,0 +1,1 @@
+key_zom = 'zom.Key.secret'
