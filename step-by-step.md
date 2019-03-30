@@ -63,6 +63,15 @@ $ pip3 freeze > requirements.txt
 
 ### The App
 
+1) create template folder for landing.html template!
+
+
+
+
+
+
+
+
 We are going to recreate one of my favorite websites! Reddit.
 
 in app.py:

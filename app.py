@@ -24,7 +24,7 @@ app.secret_key = key_zom
 
 @app.route('/')
 def index():
-  return 'Hello'
+  return render_template('landing.html')
 
 if __name__ == '__main__':
   app.run(debug=DEBUG, port=PORT)
