@@ -2,7 +2,7 @@
 {% from 'macros.html' import render_field %}
 
 {% block content %}
-  <form method="POST" action="" class="form">
+  <form method="POST" action="{{url_for('signin')}}" class="form">
     {{ form.hidden_tag() }}
     {% for field in form %}
       {{ render_field(field) }}

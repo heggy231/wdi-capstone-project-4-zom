@@ -377,7 +377,11 @@ resource
 ----------
 - password https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
 
-step-by-step:
+- flask-auth: https://git.generalassemb.ly/sf-wdi-51/flask-auth
+  > pip3 install flask flask-login flask-bcrypt peewee flask-wtf
+  > pip3 freeze > requirements.txt
+
+- Step-by-step:
 1) create template folder for landing.html template!
 - add logo
 
@@ -392,6 +396,7 @@ step-by-step:
 2) get the signin form to look like the register.html by updating class in forms.py, import macros.html
 
 3) create database  for register, model > after that register.html so the register can insert user in `app.py` route
+  - remember to call models.initialize() in app.py at this point!!
 
 
   - important resource: data type for peewee
@@ -403,3 +408,7 @@ step-by-step:
     python 2.7+ and 3.4+ (developed with 3.6)
     supports sqlite, mysql and postgresql
     tons of extensions
+- lastly check on sqllight db to see if user is created and saved in db [x]
+4) Login: 
+[ ] create route for login in app.py
+[ ] check if data submitted during register will let user login

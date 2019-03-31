@@ -34,6 +34,7 @@ class RegisterForm(Form):
     validators=[DataRequired()]
   )
 
+# We are passing WTF Form Super class so it knows to get the functions from WTF form (Inheritance)
 class SigninForm(Form):
   email = StringField(
     'Email', 

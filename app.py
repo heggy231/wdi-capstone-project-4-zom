@@ -24,6 +24,20 @@ PORT = 8000
 app = Flask(__name__)
 app.secret_key = key_zom
 
+login_manager = LoginManager()
+# sets up our login for the app
+login_manager.init_app(app)
+# to login the user send user to route: signin
+login_manager.login_view = 'signin'
+
+@login_manager.user_loader
+def load_user(userid):
+  try:
+    # looking up user by id in db
+    return models.User.get(models.User.id == userid)
+  except models.DoesNotExist:
+    return None
+
 # before_request, after_request are for connecting to db
 @app.before_request
 def before_request():
@@ -39,9 +53,9 @@ def after_request(response):
     return response
 
 @app.route('/')
-def signin():
+def index():
   form = forms.SigninForm()
-  return render_template('signin.html', form=form)
+  return render_template('signin.html', form=form, current_user=current_user)
 
 @app.route('/register', methods=('GET', 'POST'))
 def register():
@@ -55,6 +69,26 @@ def register():
     )
   return render_template('register.html', form=form)
 
+@app.route('/signin', methods=('GET', 'POST'))
+def signin():
+    form = forms.SigninForm()
+    if form.validate_on_submit():
+        try:
+            user = models.User.get(models.User.email == form.email.data)
+        except models.DoesNotExist:
+            flash("your email or password doesn't match", "error")
+        else:
+            if check_password_hash(user.password, form.password.data):
+                ## creates session
+                login_user(user)
+                flash("You've been logged in", "success")
+                return redirect(url_for('index'))
+            else:
+                flash("your email or password doesn't match", "error")
+    return render_template('signin.html', form=form)
 
 if __name__ == '__main__':
+  models.initialize()
+
+
   app.run(debug=DEBUG, port=PORT)

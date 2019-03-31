@@ -23,8 +23,10 @@
   <div class="container"> <!-- start of parent container-->
       <div class="row">
         <div class="col">
+          <h1>{% if current_user.is_authenticated %} Welcome! {{current_user.email}} {%endif%}</h1>
+        </div>
+        <div class="col">
             {% block content %}{% endblock %}
-
 
         </div> <!-- end of col-->
       </div> <!-- end of row-->

@@ -3,13 +3,13 @@
 
 {% block content %}
 <form method="POST" action="" class="form">
-    {{ form.hidden_tag() }}
+  {{ form.hidden_tag() }}
 
-    {% for field in form %}
-        {{render_field(field)}}
+  {% for field in form %}
+    {{render_field(field)}}
 
-    {% endfor %}
-    <button class="btn btn-dark" type="submit" id="submit">Register!</button>
+  {% endfor %}
+  <button class="btn btn-dark" type="submit" id="submit">Register!</button>
 </form>
-<a href="{{url_for('signin')}}" title="Sign In">Sign In</a>
+<button class="btn btn-dark" type="submit" id="submit"><a href="{{url_for('signin')}}" title="Sign In">Sign In</a></button>
 {% endblock %}
