@@ -9,17 +9,33 @@
   <!-- font awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- ############ custom css style ############## -->
-  <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+  <!-- ######### bootstrap ######### -->
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+  <!-- ############ custom css style ############## -->
+  <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}"> -->
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
   <title>Zom diary</title>
 </head>
 <body>
 
-  <div>
-    {% block content %} {% endblock %}
-  </div>
 
+  <div class="container"> <!-- start of parent container-->
+      <div class="row">
+        <div class="col">
+            <h1>{% if current_user.is_authenticated %} Hello {{current_user.username}} {%endif%}</h1>
+        </div> <!-- end of col-->
+        <div class="col">
+            <a href="{{url_for('register')}}" title="register">register</a>
+        </div> <!-- end of col-->
+      </div> <!-- end of row-->
+
+      <div class="row">
+        <div class="col">
+          {% block content %}{% endblock %}
+        </div> <!-- end of col-->
+      </div> <!-- end of row-->
+  </div> <!-- end of parent container-->
   <!-- ############ Script section ############## -->
   <!-- jQuery for toggle hamburger -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -389,3 +389,9 @@ resource
 - add logo
 
 <img src="../static/neighlogo.png" alt="neighborAlet-logo"  width="100" height="100" >
+
+- add register html, macro for login using: 
+  https://github.com/heggy231/flask-auth-login-logout
+- create model to save user login info
+- to check if register working: create urlfor link register (register html template, routing for register in app.py)
+    created class for register form in forms.py
