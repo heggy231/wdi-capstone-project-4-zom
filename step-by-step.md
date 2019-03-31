@@ -63,15 +63,6 @@ $ pip3 freeze > requirements.txt
 
 ### The App
 
-1) create template folder for landing.html template!
-
-
-
-
-
-
-
-
 We are going to recreate one of my favorite websites! Reddit.
 
 in app.py:
@@ -386,6 +377,8 @@ resource
 ----------
 - password https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password
 
+step-by-step:
+1) create template folder for landing.html template!
 - add logo
 
 <img src="../static/neighlogo.png" alt="neighborAlet-logo"  width="100" height="100" >
@@ -395,3 +388,18 @@ resource
 - create model to save user login info
 - to check if register working: create urlfor link register (register html template, routing for register in app.py)
     created class for register form in forms.py
+
+2) get the signin form to look like the register.html by updating class in forms.py, import macros.html
+
+3) create database  for register, model > after that register.html so the register can insert user in `app.py` route
+
+
+  - important resource: data type for peewee
+  http://docs.peewee-orm.com/en/latest/peewee/models.html#field-types-table
+
+  - Why use peewee: It makes object out of relational table such as sql so that I do'nt have to write sql query which is hard. http://docs.peewee-orm.com/en/latest/index.html
+  Peewee is a simple and small ORM. It has few (but expressive) concepts, making it easy to learn and intuitive to use.
+    - a small, expressive ORM
+    python 2.7+ and 3.4+ (developed with 3.6)
+    supports sqlite, mysql and postgresql
+    tons of extensions

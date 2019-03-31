@@ -5,7 +5,7 @@ from flask_bcrypt import check_password_hash
 # from werkzeug.utils import secure_filename
 
 import os
-# import models 
+import models 
 import forms
 
 import json
@@ -24,13 +24,35 @@ PORT = 8000
 app = Flask(__name__)
 app.secret_key = key_zom
 
+# before_request, after_request are for connecting to db
+@app.before_request
+def before_request():
+    """Connect to the database before each request."""
+    g.db = models.DATABASE
+    g.db.connect()
+    g.user = current_user
+
+@app.after_request
+def after_request(response):
+    """Close the database connection after each request."""
+    g.db.close()
+    return response
+
 @app.route('/')
-def index():
-  return render_template('landing.html')
+def signin():
+  form = forms.SigninForm()
+  return render_template('signin.html', form=form)
 
 @app.route('/register', methods=('GET', 'POST'))
 def register():
   form = forms.RegisterForm()
+  if form.validate_on_submit():
+    flash('Yay you registered', 'success')
+    # creating the user when user first registers
+    models.User.create_user(
+      email=form.email.data,
+      password=form.password.data
+    )
   return render_template('register.html', form=form)
 
 

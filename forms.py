@@ -34,3 +34,16 @@ class RegisterForm(Form):
     validators=[DataRequired()]
   )
 
+class SigninForm(Form):
+  email = StringField(
+    'Email', 
+    validators=[
+      DataRequired(), 
+      Email()
+    ])
+  password = PasswordField(
+    'Password', 
+    validators=[
+      DataRequired()
+    ])
+
