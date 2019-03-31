@@ -5,7 +5,7 @@ from flask_bcrypt import check_password_hash
 # from werkzeug.utils import secure_filename
 
 import os
-import models 
+# import models 
 import forms
 
 import json
