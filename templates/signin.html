@@ -2,6 +2,8 @@
 {% from 'macros.html' import render_field %}
 
 {% block content %}
+
+{% if not current_user.is_authenticated %}
   <form method="POST" action="{{url_for('signin')}}" class="form">
     {{ form.hidden_tag() }}
     {% for field in form %}
@@ -9,5 +11,10 @@
     {% endfor %}
     <button class="btn btn-dark" type="submit" id="submit">Sign In</button>
   </form>
-  <a href="{{url_for('register')}}" title="Register">Register</a>
+  <button class="btn btn-dark"><a href="{{url_for('register')}}" title="Register">Register</a></button>
+{% endif %}
+
+{% if current_user.is_authenticated %}
+  <button class="btn btn-dark"><a href="{{url_for('signout')}}" title="Sign Out">Sign Out</a></button>
+{% endif %}
 {% endblock %}

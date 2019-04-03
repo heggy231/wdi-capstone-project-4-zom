@@ -87,6 +87,13 @@ def signin():
                 flash("your email or password doesn't match", "error")
     return render_template('signin.html', form=form)
 
+# logout user, redirect to landing
+@app.route('/signout')
+def signout():
+  logout_user()
+  flash("You've been logged out, Good Night", "success")
+  return redirect(url_for('index'))
+
 if __name__ == '__main__':
   models.initialize()
 
