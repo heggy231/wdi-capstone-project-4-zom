@@ -412,3 +412,48 @@ resource
 4) Login: 
 [ ] create route for login in app.py
 [ ] check if data submitted during register will let user login
+
+_________________POST FORM ___________________________
+[X] 1. WTForms to create forms.py class for Post(), forms.py defines a class to represent our form. We add the fields we need which will eventually be used with a form builder on the frontend, a fairly common feature of frameworks like Flask, Django, Ruby on Rails, etc.
+
+```
+  # import the tools and fields we need
+  from flask_wtf import FlaskForm as Form
+  from wtforms import TextField, TextAreaField, SubmitField
+
+  # import the Sub model
+  from models import Sub
+
+  # create the class and variables to house Field definitions
+  class SubForm(Form):
+    name = TextField("Name this sub")
+    description = TextAreaField("Add a description for the sub here")
+    submit = SubmitField('Create Sub')
+```
+
+[ ] 2. FORM now exists but we can't use it until we add it to a template!
+- Create post.html template
+- Use the form builder to render the form {{form.somehthing()}} - it is ok! we will find out soon! (https://git.generalassemb.ly/sf-wdi-51/Flask-Models)
+```
+ {% extends "layout.html" %}
+
+  {% block content %}
+    <form method="POST" action="" novalidate> // When present <form novalidate>, it specifies that the form-data (input) should not be validated when submitted
+      {{ form.hidden_tag() }}
+
+      <div>
+        {{ form.name.label }}
+        {{ form.name() }}
+      </div>
+      <div>
+        {{ form.description.label }}
+        {{ form.description() }}
+      </div>
+
+      {{ form.submit() }}
+    </form>
+  {% endblock %}
+```
+
+- [ ] once user signed-in  > sees the post diary option right away in signin.html 
+- [ ] set up 

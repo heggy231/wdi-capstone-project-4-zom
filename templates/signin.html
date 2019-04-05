@@ -3,18 +3,26 @@
 
 {% block content %}
 
-{% if not current_user.is_authenticated %}
-  <form method="POST" action="{{url_for('signin')}}" class="form">
-    {{ form.hidden_tag() }}
-    {% for field in form %}
-      {{ render_field(field) }}
-    {% endfor %}
-    <button class="btn btn-dark" type="submit" id="submit">Sign In</button>
-  </form>
-  <button class="btn btn-dark"><a href="{{url_for('register')}}" title="Register">Register</a></button>
-{% endif %}
+  {% if not current_user.is_authenticated %}
+    <form method="POST" action="{{url_for('signin')}}" class="form">
+      {{ form.hidden_tag() }}
+      {% for field in form %}
+        {{ render_field(field) }}
+      {% endfor %}
+      <button class="btn btn-dark" type="submit" id="submit">Sign In</button>
+    </form>
+    <button class="btn btn-dark"><a href="{{url_for('register')}}" title="Register">Register</a></button>
+  {% endif %}
 
-{% if current_user.is_authenticated %}
-  <button class="btn btn-dark"><a href="{{url_for('signout')}}" title="Sign Out">Sign Out</a></button>
-{% endif %}
+  {% if current_user.is_authenticated %}
+    <button class="btn btn-dark"><a href="{{url_for('signout')}}" title="Sign Out">Sign Out</a></button>
+    <form method="POST" action="{{url_for('post')}}" class="form">
+      {{ postform.hidden_tag() }}
+      {% for field in postform %}
+        {{ render_field(field) }}
+      {% endfor %}
+      <button class="btn btn-dark" type="submit" id="submit">Post Diary</button>
+    </form>
+  {% endif %}
+  
 {% endblock %}

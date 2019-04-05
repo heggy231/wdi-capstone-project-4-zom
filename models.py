@@ -1,12 +1,12 @@
 import datetime
-from peewee import *
+from peewee import * # peewee is a small and simple ORM, like mongoose but simpler
 
 from flask_login import UserMixin
 from flask_bcrypt import generate_password_hash
 
-DATABASE = SqliteDatabase('zom.db')
+DATABASE = SqliteDatabase('zom.db') # We use the built in SqliteDatabase() function from peewee to save a reference to a DB file to a DATABASE variable
 
-class User(UserMixin, Model):
+class User(UserMixin, Model): # User model with email, pwd, joinDate!
   email = CharField(unique=True)
   password = CharField(max_length=100)
   joined_at = DateTimeField(default=datetime.datetime.now())
@@ -34,6 +34,7 @@ class Post(Model):
     model=User,
     backref='posts'
   )
+  title = CharField()
   content = TextField()
 
   class Meta:
@@ -41,7 +42,7 @@ class Post(Model):
       order_by = ('-timestamp',)
         
         
-def initialize():
+def initialize(): # Initialize a connection to the DATABASE, create a table for the User, Post models; then close the connection
   DATABASE.connect()
   DATABASE.create_tables([User, Post], safe=True)
   DATABASE.close()
