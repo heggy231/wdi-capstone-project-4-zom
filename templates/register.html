@@ -2,14 +2,14 @@
 {% from 'macros.html' import render_field %}
 
 {% block content %}
-<form method="POST" action="" class="form">
-  {{ form.hidden_tag() }}
+  <form method="POST" action="" class="form">
+    {{ form.hidden_tag() }}
 
-  {% for field in form %}
-    {{render_field(field)}}
+    {% for field in form %}
+      {{render_field(field)}}
 
-  {% endfor %}
-  <button class="btn btn-dark" type="submit" id="submit">Register!</button>
-</form>
-<button class="btn btn-dark" type="submit" id="submit"><a href="{{url_for('signin')}}" title="Sign In">Sign In</a></button>
+    {% endfor %}
+    <button class="btn btn-dark" type="submit" id="submit">Register!</button>
+  </form>
+  <button class="btn btn-dark" type="submit" id="submit"><a href="{{url_for('signin')}}" title="Sign In">Sign In</a></button>
 {% endblock %}

@@ -455,5 +455,28 @@ _________________POST FORM ___________________________
   {% endblock %}
 ```
 
-- [ ] once user signed-in  > sees the post diary option right away in signin.html 
-- [ ] set up 
+- [x] once user signed-in  > sees the post diary option right away in signin.html 
+- [x] delete post
+
+- [x] research chart.js, https://pythonspot.com/flask-and-great-looking-charts-using-chart-js/
+
+- [ ] make each post in posts page a link!
+
+- [x] share on twitter 
+      https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
+      - 
+        How to add a Tweet button to your website
+
+        1. Create a new anchor element with a twitter-share-button class to allow the Twitter for Websites JavaScript to discover the element and enhance the link into a Tweet button. Set a href attribute value of https://twitter.com/intent/tweet to create a link to the Twitter web intent composer.
+
+```
+<a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+Tweet</a>
+```
+        2. Pre-populate Tweet text and suggest related accounts by customizing Tweet web intent query parameters.
+
+          
+        <a class="twitter-share-button"
+          href="https://twitter.com/intent/tweet?text=Hello%20world">
+        Tweet</a>
+

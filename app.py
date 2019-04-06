@@ -48,6 +48,8 @@ def before_request():
     g.db = models.DATABASE
     g.db.connect()
     g.user = current_user
+    current_user.signedin_at = datetime.datetime.now() # sending in before operation
+
 
 @app.after_request
 def after_request(response):
@@ -98,14 +100,28 @@ def signin():
 # logout user, redirect to landing
 @app.route('/signout')
 def signout():
+  # update the time info when user signedin_at col to none so next time it will get the newest next login info: https://stackoverflow.com/questions/19239324/how-to-use-update-query-in-flask-peewee, Update query in Flask Peewee?
+  # q = models.User.update(models.User.signedin_at = None).where(models.User.email==current_user.email) # email is unique
+  # q.execute() # Will do the SQL update query.
+
   logout_user()
   flash("You've been logged out, Good Night", "success")
   return redirect(url_for('index'))
 
+@app.route('/posts', methods=['GET', 'POST'])
+@app.route('/posts/', methods=['GET', 'POST'])
+@app.route('/posts/<id>', methods=['GET', 'POST'])
+
+
 # create diary post, once done user is taken back to landing pg
-@app.route('/post', methods=['GET', 'POST'])
-@app.route('/post/<id>', methods=['GET', 'POST'])
+@app.route('/posts', methods=['GET', 'POST'])
+@app.route('/posts/', methods=['GET', 'POST'])
+@app.route('/posts/<id>', methods=['GET', 'POST'])
 def post(id=None):
+  # if user just didn't click on one specific post then show the whole list of posts
+  if id == None:
+    # many po
+    posts = models.Post.select().where(models.Post.user == current_user.id) # pick the current user's post only
   form = forms.PostForm() # send down form var to the template which requires it is added here
   if form.validate_on_submit():
     models.Post.create(
@@ -113,7 +129,7 @@ def post(id=None):
       title=form.title.data,
       content=form.content.data,
     )
-  return redirect(url_for('index'))
+  return render_template('posts.html', form=form, posts=posts)
 
 if __name__ == '__main__':
   models.initialize() # before our app runs we initialize a connection to the models

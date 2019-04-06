@@ -10,6 +10,7 @@ class User(UserMixin, Model): # User model with email, pwd, joinDate!
   email = CharField(unique=True)
   password = CharField(max_length=100)
   joined_at = DateTimeField(default=datetime.datetime.now())
+  signedin_at = DateTimeField(default=datetime.datetime.now(), null=True) # when user logs in this gets updated
 
   class Meta:
     database = DATABASE
@@ -41,6 +42,11 @@ class Post(Model):
       database = DATABASE
       order_by = ('-timestamp',)
         
+  class Time(Model):
+    user_id= IntegerField()
+    post_id= IntegerField()
+    class Meta:
+        database = DATABASE
         
 def initialize(): # Initialize a connection to the DATABASE, create a table for the User, Post models; then close the connection
   DATABASE.connect()

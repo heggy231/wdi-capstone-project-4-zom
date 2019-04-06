@@ -1,0 +1,38 @@
+{% extends "layout.html" %} 
+
+{% block content %}
+  {% if not posts %}
+    <div><strong>There is no diary post currently!  Please create one!</strong></div>
+  {% endif %}
+
+  {% if posts %}
+    <script>
+      console.log("I want to put chart.js here!!")
+
+    </script>
+    <h3>Diary Posts:</h3>
+    {% for post in posts %}
+      <article class="commentbox">
+        <div id="post-list-wrap">
+          <div>
+            <a href="{{url_for('post', id=post.id)}}">
+              <h4>{{post.title}}</h4> <i class="fas fa-pencil-alt"></i>
+            </a>
+            <a href="#">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+            <a class="twitter-share-button"
+              href="https://twitter.com/intent/tweet?text={{post.title}} {{post.content}}">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <h2>Time Ended: {{post.timestamp.strftime("%X")}}</h2>
+            <h2>Date Ended: {{post.timestamp.strftime("%x")}}</h2>
+          </div>
+        </div>
+
+      </article>
+    {% endfor %}
+  {% endif %}
+  <button class="btn btn-dark"><a href="{{url_for('index')}}">Create Diary Post</a></button>
+  
+{% endblock %}
