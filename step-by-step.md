@@ -17,6 +17,40 @@ $ virtualenv .env -p python3
 $ source .env/bin/activate
 ```
 
+- heggy initial run command
+#Flask command Models RUN FLASK
+
+- ********** how to run flask start flask https://git.generalassemb.ly/sf-wdi-51/Flask-Templates/blob/master/README.md https://git.generalassemb.ly/sf-wdi-51/intro_to_flask
+>$ mkdir flask-intro && cd flask-intro
+>$ pip3 install virtualenv
+>$ virtualenv .env -p python3
+>$ source .env/bin/activate
+> pip3 install -r requirements.txt
+> python3 app.py
+
+>$ pip3 install flask flask-login flask-bcrypt peewee flask-wtf flask-cors
+>$ pip3 freeze > requirements.txt
+> python3 app.py
+if I got this app from online (https://git.generalassemb.ly/sf-wdi-51/intro_to_flask#dependencies)
+
+> python3 app.py // run th app
+I expect to see it running `http://localhost:8000/`
+
+second time
+>$ virtualenv .env -p python3
+>$ source .env/bin/activate
+> pip3 install -r requirements.txt
+> python3 app.py // run th app
+I expect to see it running `http://localhost:8000/`
+
+
+>$ pip3 install virtualenv
+>$ virtualenv .env -p python3
+>$ source .env/bin/activate
+> pip3 install -r requirements.txt
+> python3 app.py // run th app
+
+
 You should see `(.env)` which is virtualenvironment you just created!
 <img src="https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FScreen%20Shot%202019-03-30%20at%2011.29.28%20AM.png?1553970695215">
 
@@ -460,7 +494,6 @@ _________________POST FORM ___________________________
 
 - [x] research chart.js, https://pythonspot.com/flask-and-great-looking-charts-using-chart-js/
 
-- [ ] make each post in posts page a link!
 
 - [x] share on twitter 
       https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
@@ -480,4 +513,38 @@ Tweet</a>
           href="https://twitter.com/intent/tweet?text=Hello%20world">
         Tweet</a>
 
+
+[x] bug on user time signed in issue: Usermix doesn't yet have login info to get the timestamp
+![userMix](https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FScreen%20Shot%202019-04-06%20at%208.21.03%20PM.png?1554611746673)
+```
+  myuser = models.User.get(models.User.id == g.user.userid)
+  myuser.login_time = login_time 
+  myuser.save() # this is errors out due to UserMIXIN has not yet set the user info
+```
+    resolved: Flask Cookies: https://www.tutorialspoint.com/flask/flask_cookies.htm
+
+      # remember to import make_response, request from flask for cookie!
+        resp = make_response(render_template('signin.html', form=form, current_user=current_user, postform=postform)) # https://stackoverflow.com/questions/46661083/how-to-set-cookie-in-python-flask, http://flask.pocoo.org/docs/1.0/api/#flask.Response.set_cookie
+        resp.set_cookie('login_time', login_time.strftime('%Y-%m-%d  %I:%M%p') )
+        
 [ ] TODO BONUS: Future fix - need to track when user edit the post later- how does that alter the graph? endtimestamp alters
+
+[x] bug fix: https://stackoverflow.com/questions/27606653/oserror-errno-8-exec-format-error   #!/usr/bin/env python
+add that top of app.py for it to find the erron error, this specifies that my files are python so compile it with python engine
+
+- [ ] CREATE profile page which will have the graphs and list all posts in posts page a link!
+
+- When designing
+*** forms.py) ****
+class PostForm(Form): #pass in Form class obj to inherit StringField() method and TextField
+
+  title = StringField(  << title is class, id
+    'Title',  <<< this is placeholder
+    validators=[
+      DataRequired()
+    ])
+  content = TextField(
+    'Tell your story...',  
+    validators=[
+      DataRequired()
+    ])

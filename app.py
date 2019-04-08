@@ -1,5 +1,6 @@
+#!/usr/bin/env python
 from flask import Flask, g
-from flask import render_template, flash, redirect, url_for
+from flask import request, make_response, render_template, flash, redirect, url_for
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_bcrypt import check_password_hash
 # from werkzeug.utils import secure_filename
@@ -58,20 +59,20 @@ def after_request(response):
 
 @app.route('/') # root route revert you to sigin form
 def index():
-  
+
+  # anytime user hits index we will get the time
   login_time = datetime.datetime.now()
   # Here we use a class of some kind to represent and validate our
   # client-side form data. For example, WTForms is a library that will
   # handle this for us, and we use a custom LoginForm to validate.
   form = forms.SigninForm()
   postform = forms.PostForm()
-  
 
-  myuser = models.User.get(models.User.id == g.user.userid)
-  myuser.login_time = login_time 
-  myuser.save()
+  # remember to import make_response, request from flask for cookie!
+  resp = make_response(render_template('signin.html', form=form, current_user=current_user, postform=postform)) # https://stackoverflow.com/questions/46661083/how-to-set-cookie-in-python-flask, http://flask.pocoo.org/docs/1.0/api/#flask.Response.set_cookie
+  resp.set_cookie('login_time', login_time.strftime('%Y-%m-%d  %I:%M%p') )
   
-  return render_template('signin.html', form=form, current_user=current_user, postform=postform)
+  return resp
 
 @app.route('/register', methods=('GET', 'POST'))
 def register():
@@ -120,12 +121,11 @@ def signout():
 def post(id=None):
   form = forms.PostForm()
   if form.validate_on_submit():
-    myuser = g.user._get_current_object()
     models.Post.create(
-      user=myuser, # g.user is current_user obj, local proxy all the info about current user is under property current_user.user_get_current_object(). so remember to call the user_get_current_object() when called alone.  but when it is called with db current_user then no need to call user_get_current_object(); since db will lazy load. https://www.reddit.com/r/flask/comments/58zhae/af_current_user_vs_current_user_get_current_object/
+      user=g.user._get_current_object(), # g.user is current_user obj, local proxy all the info about current user is under property current_user.user_get_current_object(). so remember to call the user_get_current_object() when called alone.  but when it is called with db current_user then no need to call user_get_current_object(); since db will lazy load. https://www.reddit.com/r/flask/comments/58zhae/af_current_user_vs_current_user_get_current_object/
       title=form.title.data,
       content=form.content.data,
-      starttimestamp=myuser.login_time#https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior year(2019)-month-day  %I(12hrformatHour):%Minute(PM/AM)
+      starttimestamp=datetime.datetime.strptime( request.cookies.get('login_time'), '%Y-%m-%d  %I:%M%p')#https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior year(2019)-month-day  %I(12hrformatHour):%Minute(PM/AM)
     )
     return redirect(url_for('index'))
 

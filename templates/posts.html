@@ -15,7 +15,7 @@
       <article class="commentbox">
         <div id="post-list-wrap">
           <div>
-            <a href="{{url_for('post', id=post.id)}}">
+            <a href="{{url_for('posts', id=post.id)}}">
               <h4>{{post.title}}</h4> <i class="fas fa-pencil-alt"></i>
             </a>
             <a href="#">
@@ -25,8 +25,8 @@
               href="https://twitter.com/intent/tweet?text={{post.title}} {{post.content}}">
               <i class="fab fa-twitter"></i>
             </a>
-            <h2>Time Ended: {{post.timestamp.strftime("%X")}}</h2>
-            <h2>Date Ended: {{post.timestamp.strftime("%x")}}</h2>
+            <h2>Time Ended: {{post.starttimestamp.strftime("%X")}}</h2>
+            <h2>Date Ended: {{post.endtimestamp.strftime("%x")}}</h2>
           </div>
         </div>
 
