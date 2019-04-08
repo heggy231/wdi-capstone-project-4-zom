@@ -5,19 +5,16 @@ from flask_wtf import FlaskForm as Form
 
 from wtforms import StringField, PasswordField, TextAreaField, TextField, SubmitField
 from wtforms.validators import (DataRequired, Regexp,                                       ValidationError, Email,                                     Length, EqualTo)
-
-def name_exists(form, field):
-  # if User.select().where(User.username == field.data).exists():
-  #   raise ValidationError('User with that name already exists.')
-  return
+from models import User
+from models import Post
 
 def email_exists(form, field):
-  # if User.select().where(User.email == field.data).exists():
-  #   raise ValidationError('User with that email already exists.')
+  if User.select().where(User.email == field.data).exists():
+    raise ValidationError('Oops!! User with that email already exists.')
   return
 
 # create the class and variable to house Field definitions
-class RegisterForm(Form): # pass Form class obj to inherite WTForm field like StringField(), PasswordField()
+class RegisterForm(Form): # pass Form class obj to inherits WTForm field like StringField(), PasswordField()
   email = StringField( # function I am bringing in from WTF
     'Email',
     validators=[
@@ -59,7 +56,7 @@ class PostForm(Form): #pass in Form class obj to inherit StringField() method an
     validators=[
       DataRequired()
     ])
-  content = TextField(
+  content = TextAreaField(
     'Tell your story...', 
     validators=[
       DataRequired()

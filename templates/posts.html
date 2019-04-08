@@ -15,18 +15,19 @@
       <article class="commentbox">
         <div id="post-list-wrap">
           <div>
-            <a href="{{url_for('posts', id=post.id)}}">
+            <a href={{url_for('posts', id=post.id)}}>
               <h4>{{post.title}}</h4> <i class="fas fa-pencil-alt"></i>
             </a>
-            <a href="#">
+            <a href={{url_for('delete_post', postid=post.id)}}>
               <i class="fas fa-trash-alt"></i>
             </a>
             <a class="twitter-share-button"
               href="https://twitter.com/intent/tweet?text={{post.title}} {{post.content}}">
               <i class="fab fa-twitter"></i>
             </a>
-            <h2>Time Ended: {{post.starttimestamp.strftime("%X")}}</h2>
-            <h2>Date Ended: {{post.endtimestamp.strftime("%x")}}</h2>
+            <h2>Date: {{post.starttimestamp.strftime("%Y-%m-%d, %A")}}</h2>
+            <h2>Time start: {{post.starttimestamp.strftime("%X %p")}}</h2>
+            <h2>Time end: {{post.endtimestamp.strftime("%X %p")}}</h2>
           </div>
         </div>
 

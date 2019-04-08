@@ -28,7 +28,7 @@ class User(UserMixin, Model): # User model with email, pwd, joinDate!
     except IntegrityError:
         raise ValueError("User already exists")
 
-class Post(Model):
+class Post(Model): #https://docs.python.org/2/library/datetime.html strftime and strptime define format info datetime obj
   starttimestamp = DateTimeField()
   endtimestamp = DateTimeField(default=datetime.datetime.now)
   user = ForeignKeyField(

@@ -444,8 +444,8 @@ resource
     tons of extensions
 - lastly check on sqllight db to see if user is created and saved in db [x]
 4) Login: 
-[ ] create route for login in app.py
-[ ] check if data submitted during register will let user login
+[x] create route for login in app.py
+[x] check if data submitted during register will let user login
 
 _________________POST FORM ___________________________
 [X] 1. WTForms to create forms.py class for Post(), forms.py defines a class to represent our form. We add the fields we need which will eventually be used with a form builder on the frontend, a fairly common feature of frameworks like Flask, Django, Ruby on Rails, etc.
@@ -465,7 +465,7 @@ _________________POST FORM ___________________________
     submit = SubmitField('Create Sub')
 ```
 
-[ ] 2. FORM now exists but we can't use it until we add it to a template!
+[x] 2. FORM now exists but we can't use it until we add it to a template!
 - Create post.html template
 - Use the form builder to render the form {{form.somehthing()}} - it is ok! we will find out soon! (https://git.generalassemb.ly/sf-wdi-51/Flask-Models)
 ```
@@ -490,6 +490,32 @@ _________________POST FORM ___________________________
 ```
 
 - [x] once user signed-in  > sees the post diary option right away in signin.html 
+
+* Create new post is happening inside `signin.html`
+```
+  {% if current_user.is_authenticated %}
+    <form method="POST" action="{{url_for('post')}}" class="form">
+      {{ postform.hidden_tag() }}
+      {% for field in postform %} // this is a macro
+        {{ render_field(field) }}
+      {% endfor %}
+      <button class="btn btn-dark" type="submit" id="submit">Post Diary</button>
+    </form>
+  {% endif %}
+```
+  based on this Post model fields are created inside of signin.html
+```
+  class Post(Model):
+    starttimestamp = DateTimeField()
+    endtimestamp = DateTimeField(default=datetime.datetime.now)
+    user = ForeignKeyField(
+      model=User,
+      backref='posts'
+    )
+    title = CharField()
+    content = TextField()
+```
+
 - [x] delete post
 
 - [x] research chart.js, https://pythonspot.com/flask-and-great-looking-charts-using-chart-js/
@@ -535,6 +561,9 @@ add that top of app.py for it to find the erron error, this specifies that my fi
 - [ ] CREATE profile page which will have the graphs and list all posts in posts page a link!
 
 - When designing
+ 
+  * input field fake vertical-align top to work with padding trick:
+  https://codepen.io/heggy231/pen/xeEPJW?editors=1100
 *** forms.py) ****
 class PostForm(Form): #pass in Form class obj to inherit StringField() method and TextField
 
@@ -548,3 +577,79 @@ class PostForm(Form): #pass in Form class obj to inherit StringField() method an
     validators=[
       DataRequired()
     ])
+- Delete
+  1) create url for the function delete
+  <a href={{url_for('delete_post', postid=post.id)}}><i class="fas fa-trash-alt"></i></a>
+
+  2) create delete_post route in app.py
+  @app.route('/post/<postid>/delete')
+@login_required # todo: before submitting activate this to prevent users to delete w/o login
+def delete_post(postid):
+    post_id = int(postid)
+    post = models.Post.get(models.Post.id == post_id)
+    post.delete_instance()
+    return redirect(url_for('posts'))
+
+* Note: models.Post.id is every model has an id it's ok if you don't see the id inside of models.Post 
+
+class Post(Model):
+  starttimestamp = DateTimeField()
+  endtimestamp = DateTimeField(default=datetime.datetime.now)
+  user = ForeignKeyField(
+    model=User,
+    backref='posts'
+  )
+  title = CharField()
+  content = TextField()
+
+  class Meta:
+      database = DATABASE
+      order_by = ('-endtimestamp',) #latest one comes on top
+
+
+- note: return redirect(url_for('posts'))  // creating url for posts function in my app.py
+  https://stackoverflow.com/questions/7478366/create-dynamic-urls-in-flask-with-url-for/35936261#35936261
+
+  @app.route('/questions/<int:question_id>'):    #int has been used as a filter that only integer will be passed in the url otherwise it will give a 404 error
+  def find_question(question_id):  
+      return ('you asked for question{0}'.format(question_id))
+
+    For the above we can use: 'find_question' is function name that I define inside app.py, question.id is automatically assigned for every instance of class.
+    <a href = {{ url_for('find_question' ,question_id=question.id) }}>Question 1</a>
+
+
+
+[ ] editing post:
+  1) click pencil icon and call posts route pass <id> else stmt >
+    else:
+      post_id = int(id)
+      # .get() get us the Post.id = post's id that user selected
+      post = models.Post.get(models.Post.id == post_id)
+      # then show `post.html` info
+      return render_template('post.html', post=post)
+
+   
+    <a href={{url_for('posts', id=post.id)}}>{{post.title}} <i class="fas fa-pencil-alt"></i></a>
+
+  2) once inside of http://localhost:8000/posts/2
+  it is rendering post.html with user selected id (models.Post.get(models.Post.id == post_id))
+
+
+[ ] Bug when user press enter (from laptop) well user wouldn't really press enter in phone would they?  it submits in the middle of posting very annoy thing how to prevent that from happening?
+  () try prevent default form e.prevent default form behavior?
+
+[ ] create seed data based on these diary entries
+  - Title: Friend (Obvious Child)
+    Content: I guess diary suppose to be honest.  Let me tell you little bit about me. As they say, I like my man like how I like my coffee.  disgusting?  like very weak and bitter uuuhhhhmmmm... Cold, not sweet at all ....  very gritty on the bottom as well?  if you know coffee like that.  Just like, what is your Number?  Now that we are all picturing a very filthy bottom.  I think it's time to introduce to one!!  And she is my best friend in the entire world.  I think you will love her just as much as I do.
+
+  - Title: Box (Obvious Child)
+    Content: Wow, wow.  I did the first scream for screaming and then the second scream from scaring myself from the first scream.  Yeah, I saw that.  I'm gonna come in now, ok? Yeah tada.  What are you doing here?  You said you worked here so.  Oh sure,  Oh! savage detectives.  This book's amazing.  Well, it can be yours for 99 cents.  Hey I just passed by a Mexican food truck on the way over here.  Do you wanna get a bite?  oooo ahhhh I.. When we hung out before you said, ahhh..  You said that you could Mouth f* the S* out of the burritos.  Oh G* D* I*.  Ok, Yeah?  Also, do you remember urinating in the street?  hmm among other things.  What?
+
+  - Money
+    I can't afford this.  It is almost all of my rent money.  Is there a discount?  No this has a great care plan.  Do you have any friends and family who can rent you some cash?  mmm 
+
+  - Child
+    I am not ready to have my own kids.  How can I have kids when I can't turn off the TV.  Nobody knows how to do their taxes.  No I am not going to work for your students. 
+
+  - Crocs
+    Oh you have problem with my shoes?  These are my moms.  Do you want to try them on?  Pst, No.  Alright, yeah.  That's amazing.  I don't do hard drugs.  But I imagine this would be like shooting he*.  Yeah they are so soft they are made out of angels ti* skins.  Well, and she said that.

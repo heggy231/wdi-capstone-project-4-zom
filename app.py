@@ -125,9 +125,9 @@ def post(id=None):
       user=g.user._get_current_object(), # g.user is current_user obj, local proxy all the info about current user is under property current_user.user_get_current_object(). so remember to call the user_get_current_object() when called alone.  but when it is called with db current_user then no need to call user_get_current_object(); since db will lazy load. https://www.reddit.com/r/flask/comments/58zhae/af_current_user_vs_current_user_get_current_object/
       title=form.title.data,
       content=form.content.data,
-      starttimestamp=datetime.datetime.strptime( request.cookies.get('login_time'), '%Y-%m-%d  %I:%M%p')#https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior year(2019)-month-day  %I(12hrformatHour):%Minute(PM/AM)
+      starttimestamp=datetime.datetime.strptime( request.cookies.get('login_time'), '%Y-%m-%d  %I:%M%p')# https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior year(2019)-month-day  %I(12hrformatHour):%Minute %p(PM/AM)
     )
-    return redirect(url_for('index'))
+    return redirect(url_for('index')) # creating url > calling index function
 
 
 # create diary post, once done user is taken back to landing pg
@@ -140,11 +140,33 @@ def posts(id=None):
     # select all posts
     return render_template('posts.html', posts=g.user.posts)
 
-  else:
+  else: # called first part of editing when user clicks on edit pencil in posts.html
     post_id = int(id) #id passed in from db is string usu so go ahead and make it into integer here.
     #get query to return the right one post <id> here!
     post = models.Post.get(models.Post.id == post_id)
-    return render_template('post.html', post=post)
+    return render_template('post.html', post=post) # once I got the id I then show the post.html to user for more editing
+
+@app.route('/post/<postid>/delete')
+@login_required # prevents users from deleting w/o login
+def delete_post(postid):
+  post_id = int(postid)
+  post = models.Post.get(models.Post.id == post_id)
+  post.delete_instance()
+  return redirect(url_for('posts'))
+
+@app.route('/post/<postid>/edit', methods=['GET', 'POST']) # called inside of post.html during second phase of editing logic
+@login_required
+def edit_post(postid):
+  post_id = int(postid) # convert str to int
+  post = models.Post.get(models.Post.id == post_id)
+
+  form = forms.PostForm() # forms.py call class PostForm inherit its properties
+  post.title = form.title.data # assign selected post.title tobe overwritten by form.title.data
+  post.content = form.content.data # assign selected post.content tobe overwritten by form.content.data
+  post.save() # http://docs.peewee-orm.com/en/latest/peewee/querying.html
+  flash("Great, Your diary has been edited", "success")
+  return redirect(f"/posts/{post_id}")
+
 
 if __name__ == '__main__':
   models.initialize() # before our app runs we initialize a connection to the models
