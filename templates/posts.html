@@ -6,19 +6,53 @@
   {% endif %}
 
   {% if posts %}
+    <p id="caption">The chart is displaying a bar chart.</p>
+    <div class="chart-container">
+      <canvas id="chart"></canvas>
+    </div>
     <script>
-      console.log("I want to put chart.js here!!")
-
+      var barData = {
+        labels : [
+          {% for post in posts %}
+            "{{ post.starttimestamp.strftime('%a') }}",
+          {% endfor %}
+        ],
+        datasets : [{
+          fillColor: "rgba(151,187,205,0.2)",
+          strokeColor: "rgba(151,187,205,1)",
+          pointColor: "rgba(151,187,205,1)",
+          data : [
+            {% for post in posts %}
+              "{{ ((post.endtimestamp - post.starttimestamp).total_seconds()) | round | int }}",
+            {% endfor %}
+          ]}
+        ]
+      }
+      // get bar chart canvas
+      var mychart = document.getElementById("chart").getContext("2d");
+        steps = 10
+        max = {{100}}
+      // draw bar chart
+      new Chart(mychart).Bar(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+      });
     </script>
     <h3>Diary Posts:</h3>
     {% for post in posts %}
       <article class="commentbox">
         <div id="post-list-wrap">
           <div>
-            <a href={{url_for('posts', id=post.id)}}>
+            <a href="{{url_for('posts', id=post.id)}}">
               <h4>{{post.title}}</h4> <i class="fas fa-pencil-alt"></i>
             </a>
-            <a href={{url_for('delete_post', postid=post.id)}}>
+            <a href="{{url_for('delete_post', postid=post.id)}}">
               <i class="fas fa-trash-alt"></i>
             </a>
             <a class="twitter-share-button"
@@ -37,3 +71,6 @@
   <button class="btn btn-dark"><a href="{{url_for('index')}}">Create Diary Post</a></button>
   
 {% endblock %}
+
+<button><a href="{{url_for('edit_profile')}}">{{form.submit()}}</a></button>
+<a href="{{url_for('profile')}}">{{form.cancel()}}</a>

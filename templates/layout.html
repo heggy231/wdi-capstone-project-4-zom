@@ -11,10 +11,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- ######### bootstrap ######### -->
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+  <!-- ############ import plugin script: Chart.js cdn ############## -->
+  <!-- chartjs integration https://cdnjs.com/libraries/Chart.js/
+  https://gitlab.com/patkennedy79/flask_chartjs_example/blob/master/templates/chart.html https://www.sitepoint.com/fancy-responsive-charts-with-chart-js/-->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+  
   <!-- ############ custom css style ############## -->
   <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}"> -->
   <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+
+
   <title>Zom diary</title>
 </head>
 <body>
@@ -23,7 +29,14 @@
   <div class="container"> <!-- start of parent container-->
       <div class="row">
         <div class="col">
-          <h1>{% if current_user.is_authenticated %} Welcome! {{current_user.email}} {%endif%}</h1>
+          <h1>
+            {% if current_user.is_authenticated %}
+              Welcome! {{current_user.email}}
+              <a href="{{url_for('posts')}}">
+                <i class="fas fa-user"></i>
+              </a>
+            {%endif%}
+          </h1>
         </div>
         <div class="col">
             {% block content %}{% endblock %}

@@ -519,12 +519,55 @@ _________________POST FORM ___________________________
 - [x] delete post
 
 - [x] research chart.js, https://pythonspot.com/flask-and-great-looking-charts-using-chart-js/
+  https://www.chartjs.org/docs/latest/getting-started/installation.html
+  - look for cdn Chart.min.js file
+  https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js
+  - https://www.patricksoftwareblog.com/creating-charts-with-chart-js-in-a-flask-application/
+  - creating chartjs https://www.chartjs.org/docs/latest/getting-started/usage.html#creating-a-chart
+  - really good resource for chart js
+    https://www.sitepoint.com/fancy-responsive-charts-with-chart-js/
+  1) add script tag inside of layout.html inside of head tag
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+      https://codepen.io/chartjs/pen/bWeqxB
+      Chart.js look (make it blue)
+      - blue dataset backgroundcolor hex: "rgba(10,22,195,0.2)" https://www.color-hex.com/color/0a16c3
+      - darker blue dataset border color https://www.color-hex.com/color/438e94
+
+    https://codepen.io/heggy231/pen/jRVzzE
+  datasets: [{
+    label: "Dataset #1",
+    backgroundColor: "rgba(10,22,195,0.2)",
+    borderColor: "rgba(67,142,148,1)",
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+    hoverBorderColor: "rgba(255,99,132,1)",
+    data: [65, 59, 20, 81, 56, 55, 40],
+  }]
 
 
+https://pythonspot.com/flask-and-great-looking-charts-using-chart-js/
+label: [
+
+]
+2) year.total_seconds() convert year to seconds()  https://docs.python.org/3/library/datetime.html
+http://strftime.org/
+label Mon %a 	Weekday as locale’s abbreviated name. 	Mon
+
+3) rounding
+  jinja rounding: Note that even if rounded to 0 precision, a float is returned. If you need a real integer, pipe it through int:
+
+  {{ 
+    42.55|round|int 
+  }}
+
+  {{ 
+    ((post.endtimestamp - post.starttimestamp).total_seconds() / 60) | round | int 
+  }}
 - [x] share on twitter 
       https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
-      - 
-        How to add a Tweet button to your website
+
+## How to add a Tweet button to your website
 
         1. Create a new anchor element with a twitter-share-button class to allow the Twitter for Websites JavaScript to discover the element and enhance the link into a Tweet button. Set a href attribute value of https://twitter.com/intent/tweet to create a link to the Twitter web intent composer.
 
@@ -653,3 +696,24 @@ class Post(Model):
 
   - Crocs
     Oh you have problem with my shoes?  These are my moms.  Do you want to try them on?  Pst, No.  Alright, yeah.  That's amazing.  I don't do hard drugs.  But I imagine this would be like shooting he*.  Yeah they are so soft they are made out of angels ti* skins.  Well, and she said that.
+
+- Deploy to Heroku : http://docs.peewee-orm.com/en/latest/peewee/database.html, 
+  - sql_lite is not for production db therefore we need to convert it to postgres which will save the db each time heroku runs my app
+  step1) http://docs.peewee-orm.com/en/latest/peewee/database.html#database
+
+
+https://git.generalassemb.ly/SF-WDI/flask-deployment
+https://git.generalassemb.ly/sf-wdi-51/project-03
+https://nbor-alert-heroku.herokuapp.com/
+http://blog.sahildiwan.com/posts/flask-and-postgresql-app-deployed-on-heroku/
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-the-heroku-cloud/page/5
+
+# initialise a database
+# db = PostgresqlDatabase(
+#     'database_name',  # Required by Peewee.
+#     user='postgres',  # Will be passed directly to psycopg2.
+#     password='secret',  # Ditto.
+#     host='db.mysite.com')  # Ditto.
+
+### create a nav bar:
+  - https://www.skillshare.com/lists/Coolors/102?coupon=coolors2m&irgwc=1&clickid=wpB22B3x6xGgVqr00IxYZyqoUkmSo5QvuVn1Q00&utm_content=4650&utm_term=Online%20Tracking%20Link&utm_campaign=coolors_&affiliateRef=125995&utm_medium=affiliate-referral&utm_source=IR

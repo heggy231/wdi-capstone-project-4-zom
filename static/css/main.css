@@ -13,3 +13,14 @@ body {
   font-size: 1rem;
   font-weight: normal;
 }
+
+/* https://codepen.io/chartjs/pen/bWeqxB */
+
+/* #################### chartjs styling ############ */
+.chart-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+}
+
