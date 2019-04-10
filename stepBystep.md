@@ -545,6 +545,9 @@ _________________POST FORM ___________________________
     data: [65, 59, 20, 81, 56, 55, 40],
   }]
 
+fillColor: is background graph color
+strokeColor: is outline color
+
 
 https://pythonspot.com/flask-and-great-looking-charts-using-chart-js/
 label: [
@@ -717,3 +720,36 @@ https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployme
 
 ### create a nav bar:
   - https://www.skillshare.com/lists/Coolors/102?coupon=coolors2m&irgwc=1&clickid=wpB22B3x6xGgVqr00IxYZyqoUkmSo5QvuVn1Q00&utm_content=4650&utm_term=Online%20Tracking%20Link&utm_campaign=coolors_&affiliateRef=125995&utm_medium=affiliate-referral&utm_source=IR
+
+#### dark theme
+https://codepen.io/HarlemSquirrel/pen/NdMebZ/
+- gradually change the color background turn on the light
+https://codepen.io/amitsheen/pen/bMBgZm
+
+- dark theme scroll bar
+https://codepen.io/subfauna/pen/CLtmF
+
+- yellow and dark blue background
+https://codepen.io/tomhodgins/pen/OMgPOY
+
+- color research
+https://www.sleep.org/articles/best-colors-for-sleep/
+based on sleep.org (National Sleep Foundation )
+
+- sleepy https://i.pinimg.com/originals/12/03/d8/1203d8dbd23787123dc714de1c07df09.gif
+- sleepy cat https://img.buzzfeed.com/buzzfeed-static/static/2014-04/campaign_images/webdr06/22/9/soothing-gifs-to-help-you-unwind-2-1000-1398172942-25_dblbig.jpg
+- fire beache https://images.hellogiggles.com/uploads/2016/06/20061732/beachhh2.gif
+
+- add twitter card when user saves it on their phone
+
+- diary as a card with animation
+
+- accessible
+  * Canvas element with accessible name and role via ARIA:
+  http://pauljadam.com/demos/canvas.html
+
+- sheep transparent background
+http://www.pngmart.com/image/tag/sheep
+  mom baby sheep http://www.pngmart.com/image/126858
+
+  - video: https://youtu.be/jSU18TounoI

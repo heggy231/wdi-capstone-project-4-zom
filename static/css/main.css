@@ -1,6 +1,25 @@
+/* Color Palette
+#0000CC rgba(10,22,195,1)- blue  
+#806A89 rgba(128,106,137,1)- dark purple
+#F7FC71 - Yellow
+#C8AAEF - light purple
+rgb(141, 70, 235) - dark purple
+#D8DCFF - purple/white
+#D9D0DE - grey/brown
+#EAE7D7 - beige/white
+#B58E5F - golden brown
+#7C693E - tree brown
+#E4E3C2 - warm olive
+#E8D0D9 - soft pink with olive undertone
+#474240 - Very dark grayish orange
+#323031 - JET
+rgb(210, 210, 210) - light olive
+*/
+
 body {
   margin: 0;
-
+  background: #1B2845;
+  color: #806A89;
 }
 .sign-in-label {
   /* color: grey; */
@@ -22,5 +41,5 @@ body {
   max-width: 800px;
   margin: auto;
 }
-}
+
 

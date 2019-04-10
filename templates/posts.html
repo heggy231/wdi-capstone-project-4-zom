@@ -8,7 +8,7 @@
   {% if posts %}
     <p id="caption">The chart is displaying a bar chart.</p>
     <div class="chart-container">
-      <canvas id="chart"></canvas>
+      <canvas id="chart" role="img" aria-label="Bar Chart Values in Seconds from 0 to 100 secons starting Monday to Sunday data coming from database"></canvas>
     </div>
     <script>
       var barData = {
@@ -18,9 +18,11 @@
           {% endfor %}
         ],
         datasets : [{
-          fillColor: "rgba(151,187,205,0.2)",
-          strokeColor: "rgba(151,187,205,1)",
+          fillColor: "rgba(10,22,195,0.2)",
+          strokeColor: "rgba(128, 106, 137, 1)",
           pointColor: "rgba(151,187,205,1)",
+          hoverfillColor: "rgba(10,22,195,0.4)",
+          hoverBorderColor: "rgba(67,142,148,1)",
           data : [
             {% for post in posts %}
               "{{ ((post.endtimestamp - post.starttimestamp).total_seconds()) | round | int }}",
@@ -31,7 +33,7 @@
       // get bar chart canvas
       var mychart = document.getElementById("chart").getContext("2d");
         steps = 10
-        max = {{100}}
+        max = 100
       // draw bar chart
       new Chart(mychart).Bar(barData, {
         scaleOverride: true,
