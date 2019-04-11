@@ -43,7 +43,15 @@
       {%endif%}
     </span>
   </nav>
-  
+  <div id="error_message">
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class={{category}}>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+  </div>
   <div class="container"> <!-- start of parent container-->
       <div class="row">
         <div class="col">
