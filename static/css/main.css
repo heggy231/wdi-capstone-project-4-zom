@@ -52,7 +52,7 @@ img, embed, object, video {
 }
 
 a, button a {
-  font-weight: bold;
+  font-weight: bold !important;
   color: inherit;
   text-decoration: none;
 }
@@ -60,10 +60,10 @@ a, button a {
 
 
 a:hover {
-  /* color: #F2F6D0; LIGHT GOLDENROD YELLOW */
-  /* background-color: #D8D5DB;  GAINSBORO */
+  color: rgb(49, 49, 184);
+  background-color: rgb(220, 171, 49);
   /* rounded hover highlite */
-  /* border-radius: 1rem; */
+  border-radius: 5px;
   text-decoration: none !important; 
 }
 
@@ -92,7 +92,7 @@ body {
 }
 
 /* ########## mobile friendly tap buttons links, 10 millimeters wide or half an inch - works out about 40 css px. ######## */
-nav a, a img, a, button, input, textarea, .thumb {
+nav a, a img, a, button, input, textarea, .thumb, i {
   min-height: 48px;
   min-width: 48px;
 }
@@ -204,4 +204,9 @@ input {
 .signout {
   color: rgb(255, 254, 254);
   text-decoration: none;
+}
+.signout:hover {
+  color: #fff;
+  background-color: #23272b !important;
+  border-color: #1d2124 !important;
 }

@@ -5,7 +5,7 @@
     <div id="post-list-wrap">
       <div>
         <form method="POST" action="{{url_for('edit_post', postid=post.id)}}">
-          <input type="text" name="title" value="{{post.title}}" />
+          <input type="text" id="title" name="title" value="{{post.title}}" />
           <textarea type="text" id="content" name="content" >{{post.content}}</textarea>
           <button class="btn btn-dark" type="submit" id="submit">Update Post</button>
         </form>
@@ -13,7 +13,9 @@
         <div>Date: {{post.starttimestamp.strftime("%Y-%m-%d, %A")}}</div>
         <div>Time start: {{post.starttimestamp.strftime("%X %p")}}</div>
         <div>Time end: {{post.endtimestamp.strftime("%X %p")}}</div>
-
+        <br />
+        <div>Title: {{post.title}}</div>
+        <div>Content: {{post.content}}</div>
       </div>
     </div>
   </article>
