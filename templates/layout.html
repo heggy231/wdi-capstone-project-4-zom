@@ -35,14 +35,15 @@
       {% if current_user.is_authenticated %}
         Welcome! {{current_user.email}}
         <a href="{{url_for('posts')}}">
-          <i class="fas fa-user"></i>
+          <i class="fas fa-user thumb"></i>
         </a>
-        <button class="btn btn-dark button">
-          <a href="{{url_for('signout')}}" title="Sign Out">Sign Out</a>
+        <button class="button btn btn-dark">
+          <a class="signout" href="{{url_for('signout')}}" title="Sign Out">Sign Out</a>
         </button>
       {%endif%}
     </span>
   </nav>
+
   <div id="error_message">
     {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}

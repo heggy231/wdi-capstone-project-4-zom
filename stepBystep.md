@@ -780,3 +780,19 @@ http://pokemipsum.com/
 
 Title: Sting Kadabra Zweilous
 Content: Grass Splash Celebi the enemy Pokemon fainted Maractus Hitmonchan Seismitoad. Vermilion City Houndour Aipom Cresselia Seaking Entei Lugia. Slash Metang Grovyle Super Potion Musharna Beheeyem Marowak. Charmander Bagon Munna Drifloon Sigilyph Gloom I'm on the road to Viridian City. Ruby Genesect Vaporeon Team Rocket Munchlax Eelektross Sand-Attack. 
+
+- dark moon water giphy
+https://giphy.com/gifs/water-moon-full-zxpLFGndoTuHS
+
+starDarkCelticSky img for title
+https://collhotel.com/coll-dark-sky/
+https://www.google.com/search?q=dark+sky&rlz=1C5CHFA_enUS714US716&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjJmfiit8fhAhW6HTQIHZ5LBb0Q_AUIDigB&biw=951&bih=596#imgdii=lfoOMUN1MUXo-M:&imgrc=iaFfsg9hFj7OTM:
+
+- dark moon ocean
+https://giphy.com/gifs/water-moon-full-zxpLFGndoTuHS/links
+
+- owl shake cool head giph
+https://giphy.com/allyouneediswall
+
+- golden sky
+https://aaronchang.com/product/slate/
