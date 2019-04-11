@@ -796,3 +796,18 @@ https://giphy.com/allyouneediswall
 
 - golden sky
 https://aaronchang.com/product/slate/
+
+- flask deployment:
+my heroku deployed site: https://zom-flask.herokuapp.com/
+  * https://git.generalassemb.ly/SF-WDI/flask-deployment
+  skip step 9)
+  ```
+  from playhouse.db_url import connect
+  DATABASE = connect(os.environ.get('DATABASE_URL'))
+  ```
+  skip step 11)
+  skip step 12) // basically anything related to Postgres
+
+
+- how to comment out things in Jinja
+{# #} // as if you are commenting python and inserting python variable inside of Jinja

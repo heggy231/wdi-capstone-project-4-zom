@@ -75,7 +75,7 @@ html, body, main {
   min-height: 100vh;
   width: 100%;
   font-family: 'Shadows Into Light', cursive;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   /* center things */
   margin: 0 auto;
   text-align: center;
@@ -209,4 +209,8 @@ input {
   color: #fff;
   background-color: #23272b !important;
   border-color: #1d2124 !important;
+}
+
+#no-margin-button {
+  margin-top: 0rem !important;
 }

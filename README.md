@@ -1,4 +1,6 @@
 # resource
+This capstone project showcases what I learn during my journey through General Assembly's Full Stack Web Development Immersive bootcamp.
+
 - Flask Templates: 
 Description:https://git.generalassemb.ly/sf-wdi-51/Flask-Templates/blob/master/README.md
 
