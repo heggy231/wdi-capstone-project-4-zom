@@ -13,7 +13,7 @@ import forms
 import json
 # to upload photo
 from flask import send_from_directory
-from key_zom import key_zom
+from app.key_zom import key_zom
 
 #///////////uncomment this for heroku///////////////
 # from flask.ext.heroku import Heroku
