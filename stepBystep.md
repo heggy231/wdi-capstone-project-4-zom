@@ -721,10 +721,11 @@ https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployme
 ### create a nav bar:
   - https://www.skillshare.com/lists/Coolors/102?coupon=coolors2m&irgwc=1&clickid=wpB22B3x6xGgVqr00IxYZyqoUkmSo5QvuVn1Q00&utm_content=4650&utm_term=Online%20Tracking%20Link&utm_campaign=coolors_&affiliateRef=125995&utm_medium=affiliate-referral&utm_source=IR
 
-#### dark theme
+#### dark theme:
 https://codepen.io/HarlemSquirrel/pen/NdMebZ/
 - gradually change the color background turn on the light
 https://codepen.io/amitsheen/pen/bMBgZm
+https://us.sirthelabel.com/
 
 - dark theme scroll bar
 https://codepen.io/subfauna/pen/CLtmF
@@ -753,3 +754,29 @@ http://www.pngmart.com/image/tag/sheep
   mom baby sheep http://www.pngmart.com/image/126858
 
   - video: https://youtu.be/jSU18TounoI
+
+
+- color for blue
+https://www.colorhexa.com/f0f8ff
+
+
+- tap target: mobile first design tap buttons links: 10 millimeters wide or half an inch - works out about 40 css px.
+  * fat fingers, fat thumbs: at least give 48px x 48px
+  Tap targets should be bigger than the average finger.  To ensure all of your elements are at least that size, add `min-height: 48px;`
+  `min-width: 48px;` to every tappable element.
+
+  `height`, `width` alone can be dangerous b/c it won't allow the element to resize if the content inside of it is bigger than the container.
+
+```
+nav a, button {
+  min-height: 48px;
+  min-width: 48px;
+}
+```
+
+
+- pokemon lorem ipsum
+http://pokemipsum.com/
+
+Title: Sting Kadabra Zweilous
+Content: Grass Splash Celebi the enemy Pokemon fainted Maractus Hitmonchan Seismitoad. Vermilion City Houndour Aipom Cresselia Seaking Entei Lugia. Slash Metang Grovyle Super Potion Musharna Beheeyem Marowak. Charmander Bagon Munna Drifloon Sigilyph Gloom I'm on the road to Viridian City. Ruby Genesect Vaporeon Team Rocket Munchlax Eelektross Sand-Attack. 

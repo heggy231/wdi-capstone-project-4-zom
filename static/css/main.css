@@ -15,22 +15,125 @@ rgb(141, 70, 235) - dark purple
 #323031 - JET
 rgb(210, 210, 210) - light olive
 */
+/* Global overrides
+   ================================================================ */
+
+/* box sizing */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/* ----- end of  box sizing https://css-tricks.com/box-sizing/ ---- */
+
+/* clearfix keeps following elements to come inside of floated elements */
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+html {
+
+  /* makes the font size 10px in rem easy calculation 
+  browser overall font-size 16px > 16 * .625 = 10px
+  1.6 rem * 10px = 16px */
+  /* Usually default font-size of the browser is 16px. Setting font-size: 100% will make 1rem = 16px. But it will make calculations a little difficult. A better way is to set font-size: 62.5%. Because 62.5% of 16px is 10px. Which makes 1rem = 10px.
+  https://medium.com/code-better/css-units-for-font-size-px-em-rem-79f7e592bb97
+  */
+  font-size: 62.5%; /* 1em = 10px */
+  color: #474747; /* OUTER SPACE */
+  background-color: #EBF2FA; /* ANTI-FLASH WHITE */
+}
+/* catch all for overflow */
+img, embed, object, video {
+  max-width: 100%;
+}
+
+a {
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  /* color: #F2F6D0; LIGHT GOLDENROD YELLOW */
+  background-color: #D8D5DB; /* GAINSBORO*/
+  /* rounded hover highlite */
+  border-radius: 1rem;
+  text-decoration: none;
+}
+
+html, body, main {
+  /* 100% of height of viewport
+  https://youtu.be/wBlBTO7mqoI?t=659 
+    always put body 100vh, margin: 0 when starting project
+  */
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.2rem;
+  /* center things */
+  margin: 0 auto;
+  text-align: center;
+}
+body {
+  height: 100%;
+  /* margin: 0 1rem; */
+}
 
 body {
   margin: 0;
   background: #1B2845;
   color: #806A89;
 }
-.sign-in-label {
-  /* color: grey; */
-}
 
+/* ########## mobile friendly tap buttons links, 10 millimeters wide or half an inch - works out about 40 css px. ######## */
+nav a, a img, button, input, textarea {
+  min-height: 48px;
+  min-width: 48px;
+}
 
 #content {
   width: 100%;
   padding: 0px 0px 300px 0px;
   font-size: 1rem;
   font-weight: normal;
+}
+
+/* ######### nav bar ######## */
+#zom-logo { /* movile first tap friendly */
+  height: 48px;
+  width: 48px;
+  
+}
+
+.zom-header-flex {
+  display:flex;
+  align-items:center;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  padding: 0.8rem;
+}
+
+
+
+/* ########## form format ######## */
+#email, #password {
+  position: relative;
+
+}
+.form {
+  margin-top: 0em;
+} 
+.button {
+  margin-top: 0.6rem;
+}
+#title {
+  font-size: 2rem;
 }
 
 /* https://codepen.io/chartjs/pen/bWeqxB */
@@ -43,3 +146,35 @@ body {
 }
 
 
+#content {
+  background-image: url("../asset/waterFloat.gif");
+  color: rgba(128,106,137,1);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: black;
+  font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /*  */
+}
+#login-flex {
+  display: flex;
+  justify-content: center;
+}
+
+#div_email, #div_password {
+  text-align: left;
+  text-transform: capitalize;
+}
+/* form {
+  overflow: hidden;
+}
+input {
+  float: left;
+  clear: both;
+} */
+
+#div_csrf_token {
+  display: none;
+}

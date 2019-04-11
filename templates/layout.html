@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Shadows+Into+Light" rel="stylesheet">
   <!-- favicon -->
   <link rel="shortcut icon" type="image/png" href="https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FZom.png?1553973356562"/>
   <!-- font awesome -->
@@ -25,18 +27,26 @@
 </head>
 <body>
   
+  <nav class="zom-header-flex">
+    <a href="{{url_for('index')}}">
+      <img id="zom-logo" src="../static/asset/zom.png" alt="zom cloud home icon">
+    </a>
+    <span>
+      {% if current_user.is_authenticated %}
+        Welcome! {{current_user.email}}
+        <a href="{{url_for('posts')}}">
+          <i class="fas fa-user"></i>
+        </a>
+        <button class="btn btn-dark button">
+          <a href="{{url_for('signout')}}" title="Sign Out">Sign Out</a>
+        </button>
+      {%endif%}
+    </span>
+  </nav>
+  
   <div class="container"> <!-- start of parent container-->
       <div class="row">
         <div class="col">
-          <h1>
-            {% if current_user.is_authenticated %}
-              Welcome! {{current_user.email}}
-              <a href="{{url_for('posts')}}">
-                <i class="fas fa-user"></i>
-              </a>
-            {%endif%}
-          </h1>
-
             {% block content %}{% endblock %}
 
         </div> <!-- end of col-->
