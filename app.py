@@ -166,6 +166,9 @@ def edit_post(postid):
   flash("Great, Your diary has been edited", "success")
   return redirect(f"/posts/{post_id}")
 
+if 'ON_HEROKU' in os.environ:
+  print('hitting ')
+  models.initialize()
 
 if __name__ == '__main__':
   models.initialize() # before our app runs we initialize a connection to the models
