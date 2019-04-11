@@ -13,7 +13,7 @@ import forms
 import json
 # to upload photo
 from flask import send_from_directory
-from app.key_zom import key_zom
+# from key_zom import key_zom
 
 #///////////uncomment this for heroku///////////////
 # from flask.ext.heroku import Heroku
@@ -23,7 +23,8 @@ DEBUG = True
 PORT = 8000
 
 app = Flask(__name__)
-app.secret_key = key_zom
+# app.secret_key = key_zom
+app.secret_key = 'zom.Key.secret'
 
 # login manager configuration create LoginManager class obj
 # https://flask-login.readthedocs.io/en/latest/
