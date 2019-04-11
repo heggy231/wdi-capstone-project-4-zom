@@ -1,4 +1,5 @@
 /* Color Palette
+#67a7dcfc - dull blue
 #0000CC rgba(10,22,195,1)- blue  
 #806A89 rgba(128,106,137,1)- dark purple
 #F7FC71 - Yellow
@@ -88,7 +89,13 @@ body {
 body {
   margin: 0;
   background: #1B2845;
-  color: #806A89;
+  background-image: url('../asset/rockFlower.gif');
+  filter: saturate(74%);
+  color: #67a7dcfc; /* dull blue*/
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+
 }
 
 /* ########## mobile friendly tap buttons links, 10 millimeters wide or half an inch - works out about 40 css px. ######## */
@@ -109,9 +116,8 @@ nav a, a img, a, button, input, textarea, .thumb, i {
 #zom-logo { /* movile first tap friendly */
   height: 48px;
   width: 48px;
-  
 }
-
+/* background img for nav bar */
 .zom-header-flex {
   background: #474747;
   background-image: url('https://media.giphy.com/media/zxpLFGndoTuHS/giphy.gif');
@@ -127,6 +133,33 @@ nav a, a img, a, button, input, textarea, .thumb, i {
   padding: 0.8rem;
 }
 
+/* background img for sign-in sheet */
+#sign-in-only {
+  background: #474747;
+  background-image: url('');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  display:flex;
+  align-items:center;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  padding: 0.8rem;
+  height: 100vh;
+  align-items: start;
+  width: 100vw;
+}
+.container #sign-in-only {
+  /* over writing container styling */
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  display: flex;
+  align-items: start;
+}
 /* ########## form format ######## */
 #email, #password {
   position: relative;
