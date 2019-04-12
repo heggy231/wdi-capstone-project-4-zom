@@ -436,7 +436,7 @@ resource
   - important resource: data type for peewee
   http://docs.peewee-orm.com/en/latest/peewee/models.html#field-types-table
 
-  - Why use peewee: It makes object out of relational table such as sql so that I do'nt have to write sql query which is hard. http://docs.peewee-orm.com/en/latest/index.html
+  - Why use peewee: It makes object out of relational table such as sql so that I do'nt have to write sql query which is hard (but with Peewee I can use dot notation to get the data out of table like javascript!) http://docs.peewee-orm.com/en/latest/index.html
   Peewee is a simple and small ORM. It has few (but expressive) concepts, making it easy to learn and intuitive to use.
     - a small, expressive ORM
     python 2.7+ and 3.4+ (developed with 3.6)
@@ -685,10 +685,10 @@ class Post(Model):
   () try prevent default form e.prevent default form behavior?
 
 [ ] create seed data based on these diary entries
-  - Title: Friend (Obvious Child)
+  - Title: Friend 
     Content: I guess diary suppose to be honest.  Let me tell you little bit about me. As they say, I like my man like how I like my coffee.  disgusting?  like very weak and bitter uuuhhhhmmmm... Cold, not sweet at all ....  very gritty on the bottom as well?  if you know coffee like that.  Just like, what is your Number?  Now that we are all picturing a very filthy bottom.  I think it's time to introduce to one!!  And she is my best friend in the entire world.  I think you will love her just as much as I do.
 
-  - Title: Box (Obvious Child)
+  - Title: Box
     Content: Wow, wow.  I did the first scream for screaming and then the second scream from scaring myself from the first scream.  Yeah, I saw that.  I'm gonna come in now, ok? Yeah tada.  What are you doing here?  You said you worked here so.  Oh sure,  Oh! savage detectives.  This book's amazing.  Well, it can be yours for 99 cents.  Hey I just passed by a Mexican food truck on the way over here.  Do you wanna get a bite?  oooo ahhhh I.. When we hung out before you said, ahhh..  You said that you could Mouth f* the S* out of the burritos.  Oh G* D* I*.  Ok, Yeah?  Also, do you remember urinating in the street?  hmm among other things.  What?
 
   - Money
@@ -811,6 +811,9 @@ my heroku deployed site: https://zom-flask.herokuapp.com/
   skip step 11)
   skip step 12) // basically anything related to Postgres
 
+  - heggy's 2nd heroku git
+    https://git.heroku.com/zom-heroku.git
+    https://git.heroku.com/zom-flask.git
 
 - how to comment out things in Jinja
 {# #} // as if you are commenting python and inserting python variable inside of Jinja
@@ -836,3 +839,15 @@ CREATE DATABASE zom; //<< db early name needs to match
 5) That's it! now your db is running on postgres
 
 - https://ga-students.slack.com/files/UEYFUQF27/FHGPE7C6N/steps_to_convert_sqlite_to_postgres_db
+
+# resource
+This capstone project showcases what I learn during my journey through General Assembly's Full Stack Web Development Immersive bootcamp.
+
+- Flask Templates: 
+Description:https://git.generalassemb.ly/sf-wdi-51/Flask-Templates/blob/master/README.md
+
+requirement:
+https://git.generalassemb.ly/sf-wdi-51/project-04
+
+trello:
+https://trello.com/b/Cw1b28P5/wdi-project-4-capstone-ga-zom
