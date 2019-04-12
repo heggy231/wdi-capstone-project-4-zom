@@ -557,11 +557,11 @@ label: [
 http://strftime.org/
 label Mon %a 	Weekday as locale’s abbreviated name. 	Mon
 
-3) rounding
+3) rounding - http://jinja.pocoo.org/docs/2.10/templates/ 
   jinja rounding: Note that even if rounded to 0 precision, a float is returned. If you need a real integer, pipe it through int:
 
   {{ 
-    42.55|round|int 
+    42.55|round|int  //http://jinja.pocoo.org/docs/2.10/templates/
   }}
 
   {{ 

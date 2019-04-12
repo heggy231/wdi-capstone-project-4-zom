@@ -1,6 +1,6 @@
 # <img src="https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FZom.png?1553973356562" height="60"> Project 4 - Final Project
 
-## <a href="https://zom-heroku.herokuapp.com/">**DEMO**</a>
+## <a href="https://zom-heroku.herokuapp.com/" target="_blank">**DEMO**</a>
 
 ### Motivation to build this project?
 Have you experienced not being able to fall into sleep?  Do you remember why?
@@ -69,7 +69,7 @@ I suffered from **insomnia** where I couldn't sleep for 2 straight weeks.  While
     * Collect user data logic
     * Visualize data
 
-* Sprint 2: Front-End Jinja templating
+* Sprint 2: Front-End Jinja Templating
     * Create Routes, Controllers
     * Back-End Testing
     * Use Postman to test all CRUD (GET, POST, PUT, DELETE)
@@ -109,15 +109,12 @@ I suffered from **insomnia** where I couldn't sleep for 2 straight weeks.  While
 ![chartJS](https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FScreen%20Shot%202019-04-12%20at%206.44.19%20AM.png?1555076683323)
 ## Challenges/Wins
 
-
-
 #### Challenges
 > Catch the login time data.  At first create a new column on User DB but Python told me user properties are not set yet.  I went for new direction of setting the cookie.  
 > Focus on one thing at a time.
 > jQuery not listening with Flask.
 > Heroku with Postgres DB
 > Learning to switch gear from Python, Jinja, Peewee
-
 
 #### Wins
 > Step-by-step...was able to move forward by breaking into small bite-size chunks.
