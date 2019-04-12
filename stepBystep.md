@@ -814,3 +814,9 @@ my heroku deployed site: https://zom-flask.herokuapp.com/
 
 - how to comment out things in Jinja
 {# #} // as if you are commenting python and inserting python variable inside of Jinja
+
+Thanks:
+- Amberly for showing me ChartJS css code
+- Siri for working on documentation
+- Alom for help with css styling
+- Instructional team for login time
