@@ -1,5 +1,6 @@
 /* Color Palette
 #67a7dcfc - dull blue
+rgba(189, 188, 241, 0.75) - bluish grey
 #0000CC rgba(10,22,195,1)- blue  
 #806A89 rgba(128,106,137,1)- dark purple
 #F7FC71 - Yellow
@@ -61,8 +62,8 @@ a, button a {
 
 
 a:hover {
-  color: rgb(49, 49, 184);
-  background-color: rgb(220, 171, 49);
+  color: white;
+  background-color: black;
   /* rounded hover highlite */
   border-radius: 5px;
   text-decoration: none !important; 
@@ -76,7 +77,7 @@ html, body, main {
   min-height: 100vh;
   width: 100%;
   font-family: 'Shadows Into Light', cursive;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   /* center things */
   margin: 0 auto;
   text-align: center;
@@ -89,9 +90,8 @@ body {
 body {
   margin: 0;
   background: #1B2845;
-  background-image: url('../asset/rockFlower.gif');
   filter: saturate(74%);
-  color: #67a7dcfc; /* dull blue*/
+  color: #a7a71dfc; /* dull grey */
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -109,7 +109,6 @@ nav a, a img, a, button, input, textarea, .thumb, i {
   padding: 0px 0px 300px 0px;
   font-size: 1rem;
   font-weight: normal;
-
 }
 
 /* ######### nav bar ######## */
@@ -207,7 +206,7 @@ nav a, a img, a, button, input, textarea, .thumb, i {
 /* #################### chartjs styling ############ */
 .chart-container {
   position: relative;
-  max-width: 800px;
+  max-width: 700rem;
   margin: auto;
 }
 
@@ -221,6 +220,7 @@ nav a, a img, a, button, input, textarea, .thumb, i {
 #div_email, #div_password {
   text-align: left;
   text-transform: capitalize;
+  font-weight: 900;
 }
 /* form {
   overflow: hidden;
@@ -246,4 +246,17 @@ input {
 
 #no-margin-button {
   margin-top: 0rem !important;
+}
+
+canvas {
+  background: rgba(189, 188, 241, 0.75); /* bluish grey */
+}
+
+#welcome-message {
+  font-size: 0.8rem;
+}
+
+.post-list-wrap {
+  display: flex;
+  align-items: center;
 }

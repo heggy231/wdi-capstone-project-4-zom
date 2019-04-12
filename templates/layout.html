@@ -33,7 +33,7 @@
     </a>
     <span>
       {% if current_user.is_authenticated %}
-        Welcome! {{current_user.email}}
+        <span id="welcome-message">Welcome! {{current_user.email}}</span>
         <a href="{{url_for('posts')}}">
           <i class="fas fa-user thumb"></i>
         </a>

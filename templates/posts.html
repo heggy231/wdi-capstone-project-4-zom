@@ -6,7 +6,7 @@
   {% endif %}
 
   {% if posts %}
-    <p id="caption">The chart is displaying a how long you have been journaling.</p>
+    <p id="caption">Graph Title: Journalizing time</p>
     <br>
     
     <div class="chart-container">
@@ -52,7 +52,7 @@
     {% for post in posts %}
       <article class="commentbox">
         <div id="post-list-wrap">
-          <div>
+
             <a href="{{url_for('posts', id=post.id)}}">
               <h4>{{post.title}}</h4> <i class="fas fa-pencil-alt"></i>
             </a>
@@ -63,15 +63,16 @@
               href="https://twitter.com/intent/tweet?text={{post.title}} {{post.content}}">
               <i class="fab fa-twitter"></i>
             </a>
-            <h2>Date: {{post.starttimestamp.strftime("%Y-%m-%d, %A")}}</h2>
-            <h2>Time start: {{post.starttimestamp.strftime("%X %p")}}</h2>
-            <h2>Time end: {{post.endtimestamp.strftime("%X %p")}}</h2>
-          </div>
+            <div>Date: {{post.starttimestamp.strftime("%Y-%m-%d, %A")}}</div>
+            <div>Time start: {{post.starttimestamp.strftime("%X %p")}}</div>
+            <div>Time end: {{post.endtimestamp.strftime("%X %p")}}</div>
+
         </div>
 
       </article>
     {% endfor %}
   {% endif %}
+  <br />
   <button class="btn btn-dark"><a href="{{url_for('index')}}">Create Diary Post</a></button>
   
 {% endblock %}
