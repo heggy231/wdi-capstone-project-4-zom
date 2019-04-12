@@ -820,3 +820,4 @@ Thanks:
 - Siri for working on documentation
 - Alom for help with css styling
 - Instructional team for login time
+- Nassima for helping me with the error message modals
