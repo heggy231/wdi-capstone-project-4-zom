@@ -3,7 +3,7 @@
 
 {% block content %}
   <br />
-  <form method="POST" action="" class="form">
+  <form method="POST" action="" class="form" id="register-only-background">
     {{ form.hidden_tag() }}
 
     {% for field in form %}
@@ -11,8 +11,8 @@
       <br />
     {% endfor %}
     <button class="btn btn-dark" type="submit" id="submit">Register!</button>
-
+    <button class="btn btn-dark" type="submit" id="submit"><a href="{{url_for('signin')}}" title="Sign In">Sign In</a></button>
   </form>
   <br />
-  <button class="btn btn-dark" type="submit" id="submit"><a href="{{url_for('signin')}}" title="Sign In">Sign In</a></button>
+
 {% endblock %}

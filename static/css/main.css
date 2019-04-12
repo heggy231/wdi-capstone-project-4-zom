@@ -210,6 +210,14 @@ nav a, a img, a, button, input, textarea, .thumb, i {
 #login-flex {
   display: flex;
   justify-content: center;
+  background-image: url("https://media.giphy.com/media/289KS6nDmS62koicA7/giphy.gif");
+  background-position: top;
+  background-size: contain;
+}
+#register-only-background {
+  background-image: url("https://media.giphy.com/media/m7X32eOQb2ySZLRWNe/giphy.gif");
+  background-position: top;
+  background-size: contain;
 }
 
 #div_email, #div_password {
@@ -256,6 +264,3 @@ canvas {
   align-items: center;
 }
 
-#sign-in-only {
-  https://media.giphy.com/media/289KS6nDmS62koicA7/giphy.gif
-}
