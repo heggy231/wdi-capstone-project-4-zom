@@ -795,7 +795,7 @@ https://giphy.com/gifs/water-moon-full-zxpLFGndoTuHS/links
 https://giphy.com/allyouneediswall
   * signin giphy
   https://media.giphy.com/media/1zjuVaZtOzaxlEaBBW/giphy.gif
-
+- https://giphy.com/gifs/artists-on-tumblr-illustration-nancy-liang-Py3oEdh2JqJIA
 
 - golden sky
 https://aaronchang.com/product/slate/
@@ -821,3 +821,18 @@ Thanks:
 - Alom for help with css styling
 - Instructional team for login time
 - Nassima for helping me with the error message modals
+
+### steps to convert sqlite to postgres db
+1) open sqlLiteDB
+2) open Postico
+2.5) models.py
+  > DATABASE = PostgresqlDatabase('zom') 
+3) terminal > inside of your env var
+  > psql postgres
+4) terminal 
+CREATE DATABASE zom; //<< db early name needs to match
+> pip3 install psycopg2
+> pip3 install psycopg2-binary
+5) That's it! now your db is running on postgres
+
+- https://ga-students.slack.com/files/UEYFUQF27/FHGPE7C6N/steps_to_convert_sqlite_to_postgres_db

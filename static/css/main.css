@@ -264,3 +264,11 @@ canvas {
   align-items: center;
 }
 
+#div-close {
+  display: none;
+}
+
+#comment-image {
+  height: 42px;
+  width: auto;
+}

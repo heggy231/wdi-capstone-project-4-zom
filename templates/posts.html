@@ -54,7 +54,7 @@
         <div id="post-list-wrap">
 
             <a href="{{url_for('posts', id=post.id)}}">
-              <h4>{{post.title}}</h4> <i class="fas fa-pencil-alt"></i>
+              <h4> <img id="comment-image"  src="https://media.giphy.com/media/2SYccdiXT9RvwP0OPw/giphy.gif"> Title: {{post.title}}</h4> <i class="fas fa-pencil-alt"></i>
             </a>
             <a href="{{url_for('delete_post', postid=post.id)}}">
               <i class="fas fa-trash-alt"></i>

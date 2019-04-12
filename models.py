@@ -4,7 +4,9 @@ from peewee import * # peewee is a small and simple ORM, like mongoose but simpl
 from flask_login import UserMixin
 from flask_bcrypt import generate_password_hash
 
-DATABASE = SqliteDatabase('zom.db') # We use the built in SqliteDatabase() function from peewee to save a reference to a DB file to a DATABASE variable
+DATABASE = SqliteDatabase('zom.db') 
+# We use the built in SqliteDatabase() function from peewee to save a reference to a DB file to a DATABASE variable
+# DATABASE = PostgresqlDatabase('zom')
 
 class User(UserMixin, Model): # User model with email, pwd, joinDate!
   email = CharField(unique=True)
