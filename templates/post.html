@@ -6,7 +6,7 @@
       <div>
         <form method="POST" action="{{url_for('edit_post', postid=post.id)}}">
           <input type="text" id="title" name="title" value="{{post.title}}" />
-          <textarea type="text" id="content" name="content" >{{post.content}}</textarea>
+          <textarea type="text" id="content" name="content">{{post.content}}</textarea>
           <button class="btn btn-dark" type="submit" id="submit">Update Post</button>
         </form>
         <br/>
