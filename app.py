@@ -72,7 +72,11 @@ def index():
   resp = make_response(render_template('signin.html', form=form, current_user=current_user, postform=postform)) # https://stackoverflow.com/questions/46661083/how-to-set-cookie-in-python-flask, http://flask.pocoo.org/docs/1.0/api/#flask.Response.set_cookie
   resp.set_cookie('login_time', login_time.strftime('%Y-%m-%d  %I:%M%p') )
   
-  return resp
+  return resp # index takes you to signin.html with login time info set
+
+@app.errorhandler(404)
+def page_not_found(e):
+  return render_template('404.html')
 
 @app.route('/register', methods=('GET', 'POST'))
 def register():

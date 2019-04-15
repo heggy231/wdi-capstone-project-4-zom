@@ -1,0 +1,46 @@
+*/
+/* Global overrides
+   ================================================================ */
+
+/* box sizing */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+/* ----- end of  box sizing https://css-tricks.com/box-sizing/ ---- */
+
+/* clearfix keeps following elements to come inside of floated elements */
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+html {
+
+  /* makes the font size 10px in rem easy calculation 
+  browser overall font-size 16px > 16 * .625 = 10px
+  1.6 rem * 10px = 16px */
+  /* Usually default font-size of the browser is 16px. Setting font-size: 100% will make 1rem = 16px. But it will make calculations a little difficult. A better way is to set font-size: 62.5%. Because 62.5% of 16px is 10px. Which makes 1rem = 10px.
+  https://medium.com/code-better/css-units-for-font-size-px-em-rem-79f7e592bb97
+  */
+  font-size: 62.5%; /* 1em = 10px */
+}
+body {
+  font-size: 1.3rem;
+  background: #1B2845;
+  filter: saturate(74%);
+  color: #a7a71dfc; /* dull grey */
+}
+
+img{
+  min-height: 48px;
+  min-width: 48px;
+  width: 100vw;
+}
+
+p {
+  font-size: 3rem;
+}
