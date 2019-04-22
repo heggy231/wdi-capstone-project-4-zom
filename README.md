@@ -4,10 +4,10 @@
 
 ### Motivation to build this project?
 Have you experienced not being able to fall into sleep?  Do you remember why?
-<a href="https://www.prevention.com/health/sleep-energy/a20437995/10-reasons-you-cant-sleep/" target="_blank">**Top 1**</a> reason why you can't sleep is you think too much.  
+<a href="https://www.prevention.com/health/sleep-energy/a20437995/10-reasons-you-cant-sleep/" target="_blank">**Top 1**</a> reason why most people can't sleep is that they think too much in bed.  
 <img src="https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FScreen%20Shot%202019-04-11%20at%2010.06.47%20PM.png?1555045637025">
 
-I suffered from **insomnia** where I couldn't sleep for 2 straight weeks.  While looking all over to find how to fall asleep, I ran into <a href="https://www.goodreads.com/book/show/16087720-goodnight-mind" target="_blank">Goodnight mind</a> book by Dr. Carney who is one of Canada's leading experts in psychological treatments for insomnia.  That book cured me of insomnia.  
+I suffered from **insomnia** where I couldn't sleep for 2 straight weeks.  While looking all over to find how to fall asleep, I ran into <a href="https://www.goodreads.com/book/show/16087720-goodnight-mind" target="_blank">Goodnight mind</a> book by Dr. Carney who is one of Canada's leading experts in psychological treatments for insomnia.  Following that book cured me of insomnia.  Today, I am presenting you with one of most effective technique that I learned that helped me go to sleep.
 
 - Goal: Zom app is a private space for sleepless to brain dump all of their worries and quiet down their mind.
 
@@ -17,7 +17,7 @@ I suffered from **insomnia** where I couldn't sleep for 2 straight weeks.  While
 
 ==================================
 
-### Technology MERN Stack
+### Technology Python Flask Peewee SQL Stack
 
 * Flask: Flask as the core framework for Python.
 * Peewee: object-relational mapper (ORM) implementation for bridging relational data and Python objects.
@@ -27,11 +27,10 @@ I suffered from **insomnia** where I couldn't sleep for 2 straight weeks.  While
 
 ##### Other Technologies Used
 
-* JWT - Authentication...
+* JWT | bcrypt - Authentication
     * A JSON web token, encrypted container format that is used to securely transfer information between two parties. JWTs are credentials, which can grant access to resources.
-* Cookies - Login time...
+* Cookies - Registering login time
 * Twitter API - Share my diary
-
 
 ===================================
 
