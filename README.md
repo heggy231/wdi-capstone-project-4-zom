@@ -59,6 +59,9 @@ I suffered from **insomnia** where I couldn't sleep for 2 straight weeks.  While
 
 ![ERD](https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FERD.png?1555075345890)
 
+* System Architecture
+![system architecture](https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FsystemArchitecture.png?1555912144408)
+
 * Sprint 1: Back-End Build Out
     * Define Peewee, WTForms
     * Define login, DB
