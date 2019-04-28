@@ -7,8 +7,8 @@ from flask_login import UserMixin
 from flask_bcrypt import generate_password_hash
 
 # DATABASE = SqliteDatabase('zom.db') 
-DATABASE = PostgresqlDatabase('zom')
-# DATABASE = connect(os.environ.get('DATABASE_URL'))
+# DATABASE = PostgresqlDatabase('zom')
+DATABASE = connect(os.environ.get('DATABASE_URL'))
 
 # We use the built in SqliteDatabase() function from peewee to save a reference to a DB file to a DATABASE variable
 # DATABASE = PostgresqlDatabase('zom')
