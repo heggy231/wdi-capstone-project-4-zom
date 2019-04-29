@@ -252,7 +252,7 @@ input {
 }
 
 canvas {
-  background:#0e1d3c; /* bluish grey */
+  /* background:RGB(107, /107, 255); blue */
 }
 
 #welcome-message {
