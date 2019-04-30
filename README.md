@@ -1,6 +1,6 @@
 # <img src="https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FZom.png?1553973356562" height="60"> Project 4 - Final Project
 
-## <a href="https://zom-heroku.herokuapp.com/" target="_blank">**DEMO**</a>
+## <a href="https://zom-postgres.herokuapp.com/posts/" target="_blank">**DEMO**</a>
 
 ### Motivation to build this project?
 Have you experienced not being able to fall into sleep?  Do you remember why?
