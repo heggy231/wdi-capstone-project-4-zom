@@ -1,4 +1,4 @@
-# <img src="https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FZom.png?1553973356562" height="60"> Project 4 - Final Project
+# <img src="https://cdn.glitch.com/cb093bfd-142f-45b3-bdb4-52ff49e0a1c2%2FZom.png?1553973356562" height="60"> Project 4 - Final Capstone Project
 
 - <a href="https://zom-postgres.herokuapp.com/posts/" target="_blank">**DEMO**</a> <br>
 - <a href="https://docs.google.com/presentation/d/1M3YNIiG-lnc2x5XQLvu2O2HQKqLtHpEzP2B7UiLeXqI/edit?usp=sharing" target="_blank">**Presentation**</a>
