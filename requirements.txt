@@ -37,7 +37,7 @@ psycopg2-binary==2.8.2
 ptyprocess==0.6.0
 public==2018.11.20
 pycparser==2.19
-Pygments==2.3.1
+Pygments==2.7.4
 pylint==2.3.1
 query-string==2018.11.20
 request==2018.11.20
